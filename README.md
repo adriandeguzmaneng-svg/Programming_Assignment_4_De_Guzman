@@ -23,6 +23,7 @@ For data frame b, it is just like the data frame a but with a few modification. 
 ### Output 
 Data Frame a
 <img width="440" height="187" alt="image" src="https://github.com/user-attachments/assets/6938f80b-279d-489c-8733-41ee18d3fd54" />
+
 Data Frame b
 <img width="305" height="185" alt="image" src="https://github.com/user-attachments/assets/5a1887fe-3bee-47fc-888e-253f81e4c896" />
 ### Lesson Learned
