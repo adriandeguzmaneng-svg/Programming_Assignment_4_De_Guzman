@@ -45,6 +45,7 @@ Average By Gender
 <img width="817" height="163" alt="image" src="https://github.com/user-attachments/assets/710d70df-eb56-423c-96fb-ebfd3b90c025" />
 
 Average By Hometown
+
 <img width="817" height="163" alt="image" src="https://github.com/user-attachments/assets/52ec711f-b06c-4d59-adab-0e9b0a17144d" />
 
 ### How i made it
