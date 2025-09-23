@@ -8,9 +8,25 @@ For data frame a, the format is: Filename: Instru = [“Name”, “GEAS”, “
 For data frame b, the format is: Filename: Mindy = [ “Name”, “Track”, “Electronics”, “Average >=55”]; where hometown is
 constant as Mindanao and gender Female
 ### Code
-Data Frame a
-
-<img width="1181" height="92" alt="image" src="https://github.com/user-attachments/assets/d7a58f27-5962-47bc-961e-78e83f359d9c" />
+#### Data Frame a
+```python
+Instru = df.loc[(df['Hometown'] == 'Luzon') & (df['Track'] == 'Instrumentation') & (df['Electronics'] > 70)]
+Instru = pd.DataFrame(Instru, columns = ("Name", "GEAS", "Electronics"))
+Instru.to_csv('Instru.csv')
+```
+#### How does it work
+This line analyzes through the data frame and checks the column for the given conditions such as the Hometown must be Luzon, Track must be instrumentation and score in electronics must be greater than 70 the store it to the variable "Instru"
+```python
+Instru = df.loc[(df['Hometown'] == 'Luzon') & #Looks through the column "Hometown" and checks for the string "Luzon"
+  (df['Track'] == 'Instrumentation') #Looks through the column "Track" and checks for the string "Instrumentation" 
+  & #Logical operator that states all must be true for the statement to be true or in this case inlcuded.
+  (df['Electronics'] > 70)] #Looks through the column "Electronics" and checks the value if they are more than 70
+```
+This lines would create a new data frame that only has the column "Name, "GEAS", and "Electronics" which were specified in task and save the data frame into a .csv file
+```python
+Instru = pd.DataFrame(Instru, columns = ("Name", "GEAS", "Electronics")) #Creates a new data frame that only has specific column
+Instru.to_csv('Instru.csv') #Saves the data frame into a .csv file
+```
 
 Data Frame b
 
