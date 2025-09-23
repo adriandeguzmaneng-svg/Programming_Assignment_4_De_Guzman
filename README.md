@@ -9,10 +9,12 @@ For data frame b, the format is: Filename: Mindy = [ “Name”, “Track”, �
 constant as Mindanao and gender Female
 ### Code
 Data Frame a
-<img width="775" height="93" alt="image" src="https://github.com/user-attachments/assets/f6ce2ded-6e60-4ca6-9e02-707ea835f02b" />
+
+<img width="1181" height="92" alt="image" src="https://github.com/user-attachments/assets/d7a58f27-5962-47bc-961e-78e83f359d9c" />
 
 Data Frame b
-<img width="1181" height="92" alt="image" src="https://github.com/user-attachments/assets/d7a58f27-5962-47bc-961e-78e83f359d9c" />
+
+<img width="1100" height="157" alt="image" src="https://github.com/user-attachments/assets/c226fe45-8849-4685-9629-a58abf115f63" />
 
 ### How i made it
 I first loaded the panda library for the Data Frames using the code "import pandas as pd" then loaded the given .csv file to the IDE then storing it to the variable df = creating the code "df = pd.read_csv('board2.csv')"
