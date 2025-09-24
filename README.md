@@ -8,6 +8,11 @@ For data frame a, the format is: Filename: Instru = [“Name”, “GEAS”, “
 For data frame b, the format is: Filename: Mindy = [ “Name”, “Track”, “Electronics”, “Average >=55”]; where hometown is
 constant as Mindanao and gender Female
 ### Code
+Using the code below, i was able to use the panda library as well as import the specified initial data frame into program
+```python
+import pandas as pd
+df = pd.read_csv('board2.csv')
+```
 #### Data Frame a
 ```python
 Instru = df.loc[(df['Hometown'] == 'Luzon') & (df['Track'] == 'Instrumentation') & (df['Electronics'] > 70)]
@@ -27,7 +32,8 @@ Mindy
 #### Data Frame a
 This line analyzes through the data frame and checks the column for the given conditions such as the Hometown must be Luzon, Track must be instrumentation and score in electronics must be greater than 70 the store it to the variable "Instru"
 ```python
-Instru = df.loc[(df['Hometown'] == 'Luzon') & #Looks through the column "Hometown" and checks for the string "Luzon"
+Instru = df.loc #puts all the value to the varible Instru
+  [(df['Hometown'] == 'Luzon') & #Looks through the column "Hometown" and checks for the string "Luzon"
   (df['Track'] == 'Instrumentation') #Looks through the column "Track" and checks for the string "Instrumentation" 
   & #Logical operator that states all must be true for the statement to be true or in this case inlcuded.
   (df['Electronics'] > 70)] #Looks through the column "Electronics" and checks the value if they are more than 70
@@ -43,51 +49,81 @@ These lines copies the data frame and performs a function .mean() to get the ave
 mindy = df.copy() #This line copies the data frame to prevent any errors in the code
 mindy["Average"] #This line puts the value made from the function into a new column of an array
 = df[["Math", "Electronics", "GEAS", "Communication"]] #gets the value within these columns
-.mean(axis=1) #gets the mean or the average of the selected values, axis=1 for the column\
+.mean(axis=1) #gets the mean or the average of the selected values, axis=1 for the rows
 ```
-Mindy = mindy.loc[(mindy['Hometown'] == 'Mindanao') & (mindy['Gender'] == 'Female') & (mindy['Average'] >= 55)]
-Mindy = pd.DataFrame(Mindy, columns = ("Name", "Track", "Electronics", "Average"))
-Mindy.to_csv('Mindy.csv')
+This line locates the specified parameters from the specified column
+```python
+Mindy = mindy.loc #puts all the located value to the variable Mindy
+  [(mindy['Hometown'] == 'Mindanao') #locates in the column "Hometown" who's value has "Mindanao"
+  & (mindy['Gender'] == 'Female') #locates in the column "Gender" who has the value of "Female"
+  & (mindy['Average'] >= 55)] #locates in the column "Average" who has a value of greater than or equal to 55
 ```
-<img width="1100" height="157" alt="image" src="https://github.com/user-attachments/assets/c226fe45-8849-4685-9629-a58abf115f63" />
-
-### How i made it
-I first loaded the panda library for the Data Frames using the code "import pandas as pd" then loaded the given .csv file to the IDE then storing it to the variable df = creating the code "df = pd.read_csv('board2.csv')"
-#### Data Frame a
-For data frame a, i used the syntax ".loc" to look through the data frame through the columns of the "Hometown" for any Luzons since it is constant, to also look for the "Track" column to look for any "Instrumentation", and to look for any value in "Electronics" that is greater than 70. All of this while using the logic operator "&" for all three, symbolizing "and" meaning all 3 of the conditions must be satisfied for it to be true. Thus creating the syntax, "Instru = df.loc[(df['Hometown'] == 'Luzon') & (df['Track'] == 'Instrumentation') & (df['Electronics'] > 70)]". Then using the ".DataFrame" syntax, i was able to pick specific colums that was only required to display or save and that is the "Name", "GEAS" and "Electronics", producing the code Instru = pd.DataFrame(Instru, columns = ("Name", "GEAS", "Electronics")). Next, i saved the data frame into a csv through the syntax ".to_csv()" thus if the whole line makes "Instru.to_csv('Instru.csv')". Lastly i displayed the data frame for checking.
-#### Data Frame b
-For data frame b, it is just like the data frame a but with a few modification. I first got the average of them all by using the function ".mean(axis=1)" to get the average of the columns "Math", "Electronics", "GEAS" and "Communication" then stored it while creating a new column in the data frame using the syntax "mindy["Average"]=". Meaning the whole line of code would be mindy["Average"] = df[["Math", "Electronics", "GEAS", "Communication"]].mean(axis=1). Then, I used the syntax ".loc" to look through the data frame through the columns of the "Hometown" for any "Mindanao" since it is constant, to also look for the "Gender" column to look for any "Female", and to look for any value in "Average" that is greater than or equal to 55. All of this while using the logic operator "&" for all three, symbolizing "and" meaning all 3 of the conditions must be satisfied for it to be true. Thus creating the syntax, "Mindy = mindy.loc[(mindy['Hometown'] == 'Mindanao') & (mindy['Gender'] == 'Female') & (mindy['Average'] >= 55)]". Then using the ".DataFrame" syntax, i was able to pick specific colums that was only required to display or save and that is the "Name", "Track", "Electronics" and "Average", producing the code "Mindy = pd.DataFrame(Mindy, columns = ("Name", "Track", "Electronics", "Average"))". Next, i saved the data frame into a csv through the syntax ".to_csv()" thus if the whole line makes "Instru.to_csv('Instru.csv')". Lastly i displayed the data frame for checking.
-### Output 
-Data Frame a
-
-<img width="440" height="187" alt="image" src="https://github.com/user-attachments/assets/6938f80b-279d-489c-8733-41ee18d3fd54" />
-
-Data Frame b
-
-<img width="305" height="185" alt="image" src="https://github.com/user-attachments/assets/5a1887fe-3bee-47fc-888e-253f81e4c896" />
+this line puts all the specified and required columns and saves the data frame into a .csv file
+```python
+Mindy = pd.DataFrame(Mindy, columns = ("Name", "Track", "Electronics", "Average")) #creates a data frame in which only the columns Name, Track, Electronics and Average are ony written as well as all of the values inside that column
+Mindy.to_csv('Mindy.csv') #saves the data frame into a .csv file
+```
+### Output
 
 ### Lesson Learned
-Through this problem, Although it is not visible on the code itself, i learned to be efficient on my codes. Produce the same amount and quality of output while using the least amount of lines of codes as possible. Through this, my codes would be able to be presentable as well as help a program faster in the future as i mean running on lesser lines of codes.
+Through this problem, Although it is not visible on the code itself, i learned to be efficient on my codes like using multiple amounts of funciton in a single line. Producing the same amount and quality of output while using the least amount of lines of codes as possible. Through this, my codes would be able to be presentable as well as help a program faster in the future as i mean running on lesser lines of codes.
 
 ## Problem #2
 ### Overview
 For this problem, we are tasked to create Create a visualization that shows how the different features contributes to average grade and to answer "Does chosen track in college, gender, or hometown contributes to a higher average score?".
 ### Code 
+Initial values and library
+```python
+df["Average"] = df[["Math", "Electronics", "GEAS", "Communication"]].mean(axis=1)
+Average = df[["Track", "Gender", "Hometown", "Average"]]
+import matplotlib.pyplot as plt
+```
 Average By Track
-
-<img width="914" height="192" alt="image" src="https://github.com/user-attachments/assets/3508433e-2844-44e7-b1d1-c8f2cb3846ec" />
-
+```python
+ITrackAve = Average.loc[Average['Track'] == 'Instrumentation', "Average"].mean()
+CTrackAve = Average.loc[Average['Track'] == 'Communication', "Average"].mean()
+MTrackAve = Average.loc[Average['Track'] == 'Microelectronics', "Average"].mean()
+plt.figure(figsize=(5, 6))
+plt.bar(TrackAve['Track'], TrackAve['Average'])
+plt.title("Average by Track")
+```
 Average By Gender 
-
-<img width="817" height="163" alt="image" src="https://github.com/user-attachments/assets/710d70df-eb56-423c-96fb-ebfd3b90c025" />
-
+```python
+MGenderAve = Average.loc[Average['Gender'] == 'Male', "Average"].mean()
+FGenderAve = Average.loc[Average['Gender'] == 'Female', "Average"].mean()
+plt.figure(figsize=(5, 6))
+plt.bar(GenderAve['Gender'], GenderAve['Average'])
+plt.title("Average by Gender")
+```
 Average By Hometown
-
-<img width="817" height="163" alt="image" src="https://github.com/user-attachments/assets/52ec711f-b06c-4d59-adab-0e9b0a17144d" />
-
-### How i made it
-For this problem, I first analyzed the problem and divided the code into 3 seperate groups, that is the Average by Track, Average by Gender, Average by Hometown. Then i imported the matplot library for visualization using the code "import matplotlib.pyplot as plt". Next, I created another column in the data frame named "Average" and filled it with the average of the scores in "Math", "Electronics", "GEAS", and "Communication" using the ".mean()" function thus producing the code "df["Average"] = df[["Math", "Electronics", "GEAS", "Communication"]].mean(axis=1)" in which axis=1 is required since we are using the values on the column. Then i created a new data frame for easier analysis for the system which only contains the required parameters such as "Track", "Gender", "Hometown", and "Average" thus creating the code, "Average = df[["Track", "Gender", "Hometown", "Average"]]". Then using the ".loc" syntax i was able to get the averages for the different paremeters, which includes, Instrumentation, Communication and Microelectronics for the Track. Male and Female for the Gender. Luzon, visayas, Mindanao for the hometown. I gathered all of the average for each parameters usign the ".mean()" function thus creating an example line for the Visayas paremeter for the column Hometown: "VHomeAve = Average.loc[Average['Hometown'] == 'Visayas', "Average"].mean()". Then i created a visualization of the 3 data frames using plt library and using the functions ".figure()" and ".bar()" in which displayed 3 different bar graphs showcasing the differences of averages with each paremeter. Then lastly, i titled them each correspondingly to what column are they
-
+```python
+LHomeAve = Average.loc[Average['Hometown'] == 'Luzon', "Average"].mean() #
+VHomeAve = Average.loc[Average['Hometown'] == 'Visayas', "Average"].mean()
+MHomeAve = Average.loc[Average['Hometown'] == 'Mindanao', "Average"].mean()
+plt.figure(figsize=(5, 6))
+plt.bar(HomeAve['Hometown'], HomeAve['Average'])
+plt.title("Average by Hometown")
+```
+### How does it work
+These lines were made for easier plotting since this lines creates an average for each student 
+```python
+df["Average"] #Creates a new column in the data frame named average
+= df[["Math", "Electronics", "GEAS", "Communication"]] #only chooses the math, electronics, GEAS and communication column of the frame
+.mean(axis=1) #gets the average of the column by rows throught the means of "Axis=1"
+Average = df[["Track", "Gender", "Hometown", "Average"]] #plots the data frame with only the required columns
+import matplotlib.pyplot as plt #imports the library for data plotting
+```
+Explaining a sample code from one of the visualization, these lines get the average of the rows
+\n These lines gets the mean for the different track values such as instrumentation, communication, mircoelectronics
+```python
+ITrackAve = Average.loc[Average['Track'] == 'Instrumentation', "Average"].mean() #takes only the column track and row instrumentation and gets the mean of all their average
+CTrackAve = Average.loc[Average['Track'] == 'Communication', "Average"].mean() #takes only the column track and row communication and gets the mean of all their average
+MTrackAve = Average.loc[Average['Track'] == 'Microelectronics', "Average"].mean() #takes only the column track and row microelectronics and gets the mean of all their average
+TrackAve
+plt.figure(figsize=(5, 6))
+plt.bar(TrackAve['Track'], TrackAve['Average'])
+plt.title("Average by Track")
+```
 ### Output
 Average By Track
 
