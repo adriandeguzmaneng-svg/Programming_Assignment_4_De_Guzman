@@ -14,7 +14,17 @@ Instru = df.loc[(df['Hometown'] == 'Luzon') & (df['Track'] == 'Instrumentation')
 Instru = pd.DataFrame(Instru, columns = ("Name", "GEAS", "Electronics"))
 Instru.to_csv('Instru.csv')
 ```
-#### How does it work
+#### Data Frame b
+```python
+mindy = df.copy()
+mindy["Average"] = df[["Math", "Electronics", "GEAS", "Communication"]].mean(axis=1)
+Mindy = mindy.loc[(mindy['Hometown'] == 'Mindanao') & (mindy['Gender'] == 'Female') & (mindy['Average'] >= 55)]
+Mindy = pd.DataFrame(Mindy, columns = ("Name", "Track", "Electronics", "Average"))
+Mindy.to_csv('Mindy.csv')
+Mindy
+```
+### How does it work
+#### Data Frame a
 This line analyzes through the data frame and checks the column for the given conditions such as the Hometown must be Luzon, Track must be instrumentation and score in electronics must be greater than 70 the store it to the variable "Instru"
 ```python
 Instru = df.loc[(df['Hometown'] == 'Luzon') & #Looks through the column "Hometown" and checks for the string "Luzon"
@@ -27,9 +37,18 @@ This lines would create a new data frame that only has the column "Name, "GEAS",
 Instru = pd.DataFrame(Instru, columns = ("Name", "GEAS", "Electronics")) #Creates a new data frame that only has specific column
 Instru.to_csv('Instru.csv') #Saves the data frame into a .csv file
 ```
-
-Data Frame b
-
+#### Data Frame b
+These lines copies the data frame and performs a function .mean() to get the average then put into a new column "Average"
+```python
+mindy = df.copy() #This line copies the data frame to prevent any errors in the code
+mindy["Average"] #This line puts the value made from the function into a new column of an array
+= df[["Math", "Electronics", "GEAS", "Communication"]] #gets the value within these columns
+.mean(axis=1) #gets the mean or the average of the selected values, axis=1 for the column\
+```
+Mindy = mindy.loc[(mindy['Hometown'] == 'Mindanao') & (mindy['Gender'] == 'Female') & (mindy['Average'] >= 55)]
+Mindy = pd.DataFrame(Mindy, columns = ("Name", "Track", "Electronics", "Average"))
+Mindy.to_csv('Mindy.csv')
+```
 <img width="1100" height="157" alt="image" src="https://github.com/user-attachments/assets/c226fe45-8849-4685-9629-a58abf115f63" />
 
 ### How i made it
