@@ -80,49 +80,38 @@ import matplotlib.pyplot as plt
 ```
 Average By Track
 ```python
-ITrackAve = Average.loc[Average['Track'] == 'Instrumentation', "Average"].mean()
-CTrackAve = Average.loc[Average['Track'] == 'Communication', "Average"].mean()
-MTrackAve = Average.loc[Average['Track'] == 'Microelectronics', "Average"].mean()
+TrackAve = Average.groupby("Track")["Average"].mean().reset_index()
 plt.figure(figsize=(5, 6))
 plt.bar(TrackAve['Track'], TrackAve['Average'])
 plt.title("Average by Track")
 ```
 Average By Gender 
 ```python
-MGenderAve = Average.loc[Average['Gender'] == 'Male', "Average"].mean()
-FGenderAve = Average.loc[Average['Gender'] == 'Female', "Average"].mean()
+GenderAve = Average.groupby("Gender")["Average"].mean().reset_index()
 plt.figure(figsize=(5, 6))
 plt.bar(GenderAve['Gender'], GenderAve['Average'])
 plt.title("Average by Gender")
 ```
 Average By Hometown
 ```python
-LHomeAve = Average.loc[Average['Hometown'] == 'Luzon', "Average"].mean() #
-VHomeAve = Average.loc[Average['Hometown'] == 'Visayas', "Average"].mean()
-MHomeAve = Average.loc[Average['Hometown'] == 'Mindanao', "Average"].mean()
+HomeAve = Average.groupby("Hometown")["Average"].mean().reset_index()
 plt.figure(figsize=(5, 6))
 plt.bar(HomeAve['Hometown'], HomeAve['Average'])
 plt.title("Average by Hometown")
 ```
 ### How does it work
-These lines were made for easier plotting since this lines creates an average for each student 
+This long line's purpose into make a data frame that gets the average of the "Average" column depending on each value of the column "gender"
 ```python
-df["Average"] #Creates a new column in the data frame named average
-= df[["Math", "Electronics", "GEAS", "Communication"]] #only chooses the math, electronics, GEAS and communication column of the frame
-.mean(axis=1) #gets the average of the column by rows throught the means of "Axis=1"
-Average = df[["Track", "Gender", "Hometown", "Average"]] #plots the data frame with only the required columns
-import matplotlib.pyplot as plt #imports the library for data plotting
+GenderAve = Average.groupby("Gender") #groups the each data from the gender column with unique values
+  ["Average"] #selects the values for the column average and puts it within the unique values of the selected columns
+  .mean() #gets the average of the selected parameter which is "average" column
+  .reset_index() #resets the index of the data frame so that the index is not jumbled up
 ```
-Explaining a sample code from one of the visualization, these lines get the average of the rows
-\n These lines gets the mean for the different track values such as instrumentation, communication, mircoelectronics
+These line turns the data frame into a visual aid
 ```python
-ITrackAve = Average.loc[Average['Track'] == 'Instrumentation', "Average"].mean() #takes only the column track and row instrumentation and gets the mean of all their average
-CTrackAve = Average.loc[Average['Track'] == 'Communication', "Average"].mean() #takes only the column track and row communication and gets the mean of all their average
-MTrackAve = Average.loc[Average['Track'] == 'Microelectronics', "Average"].mean() #takes only the column track and row microelectronics and gets the mean of all their average
-TrackAve
-plt.figure(figsize=(5, 6))
-plt.bar(TrackAve['Track'], TrackAve['Average'])
-plt.title("Average by Track")
+plt.figure(figsize=(5, 6)) #this plots the ratio of the figure which is 5:6
+plt.bar(GenderAve['Gender'], GenderAve['Average']) #This line plots the data from the data frame, turning it into a bar graph with the parameter "gender" and "average"
+plt.title("Average by Gender") #titles the graph into "average by gender"
 ```
 ### Output
 Average By Track
