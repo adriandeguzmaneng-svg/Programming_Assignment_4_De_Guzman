@@ -127,3 +127,5 @@ Average By Hometown
 
 ### Lesson learned
 Through this problem i am now able to visualize data to properly analyze problems. Using the problem given, i can use this knowledge in the future to analyze statistics using only python code. 
+___
+## Version 2
